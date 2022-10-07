@@ -3,26 +3,22 @@
 # %% auto 0
 __all__ = ['PAGE', 'html_tables', 'df_adherents', 'get_classement', 'add_classements']
 
-# %% update_classement.ipynb 2
+# %% update_classement.ipynb 4
 PAGE = 'https://badmania.fr/club-joueurs-2254-riom-badminton-club.html'
 
-# %% update_classement.ipynb 3
+# %% update_classement.ipynb 5
 import pandas as pd
 html_tables = pd.read_html(PAGE)
 df_adherents = html_tables[0]
 
-
-# %% update_classement.ipynb 7
+# %% update_classement.ipynb 9
 def get_classement(
     license_number,# le numero de license
 ):
-#    print(license_number)
-    if len(df_adherents[df_adherents['Licence'] == license_number]['Class.'].values)>0:
-        return df_adherents[df_adherents['Licence'] == license_number]['Class.'].values[0]
-    else:
-        return ''
+    classement_licencie = df_adherents[df_adherents['Licence'] == license_number]['Class.']
+    return classement_licencie.values[0] if len(classement_licencie)>0 else ''
 
-# %% update_classement.ipynb 19
+# %% update_classement.ipynb 22
 def add_classements(dataframe, #le dataframe des adherents
                    ):
     dataframe = dataframe.copy()
