@@ -1,5 +1,0 @@
-conda create --name rbc python=3.9
-conda activate rbc
-conda install ipykernel
-python -m ipykernel install --user --name=rbc
-pip install -r requirements.txt
