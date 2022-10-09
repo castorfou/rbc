@@ -4,3 +4,4 @@ openpyxl
 gradio
 nbdev
 gspread
+xlrd
