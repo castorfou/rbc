@@ -16,14 +16,13 @@ def get_classement(
     license_number,# le numero de license
 ):
     classement_licencie = df_adherents[df_adherents['Licence'] == license_number]['Class.']
-    return classement_licencie.values[0] if len(classement_licencie)>0 else ''
+    return classement_licencie.values[0] if len(classement_licencie)>0 else '-/-/-'
 
 # %% update_classement.ipynb 14
 def get_classements(
     license_number,# le numero de license
 ):
-    classement_licencie = df_adherents[df_adherents['Licence'] == license_number]['Class.']
-    classement =  classement_licencie.values[0] if len(classement_licencie)>0 else '-/-/-'
+    classement =  get_classement(license_number)
     return pd.Series(classement.split('/'))
 
 # %% update_classement.ipynb 29
